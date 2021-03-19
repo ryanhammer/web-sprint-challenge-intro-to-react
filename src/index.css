@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  /* Updated background image to use picture of Tatooine and it's two suns */
   background-image: url('./images/Tatooine-1024x576.jpg');
   background-size: cover;
 }

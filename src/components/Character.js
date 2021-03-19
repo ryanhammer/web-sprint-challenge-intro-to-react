@@ -2,6 +2,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// This section creates a line with character name and a button to expand details for each character in the data pulled from the API
+
+// Add styling to components of Character section
 const StyledCharacter = styled.section`
   color: ${prop => prop.theme.primaryColor};
   display: flex;

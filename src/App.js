@@ -5,14 +5,11 @@ import Character from './components/Character';
 import Details from './components/Details';
 
 const App = () => {
-  // Try to think through what state you'll need for this app before starting. Then build out
-  // the state properties here.
+  // Define state for getting character info and for expanding character info on button click. Each character in the data set has a unique url attached, so the second state variable will be on that piece of information
   const [characters, setCharacters] = useState([]);
   const [currentCharUrl, setCurrentCharUrl] = useState(null);
 
-  // Fetch characters from the API in an effect hook. Remember, anytime you have a 
-  // side effect in a component, you want to think about which state and/or props it should
-  // sync up with, if any.
+  // Get data from API with useEffect and axios.get
 
   useEffect(() => {
     axios.get('https://swapi.dev/api/people/')
@@ -24,6 +21,7 @@ const App = () => {
       })
   }, [])
 
+  // Functions for opening and closing extra character info 
   const openDetails = url => {
     setCurrentCharUrl(url);
   }
@@ -32,9 +30,9 @@ const App = () => {
     setCurrentCharUrl(null);
   }
   
-
+  // Return actual Dom component to be rendered in index.js. I've updated names from 'div' throughout document because in Unit 1 we were told Semantic HTML is always preferable
   return (
-    <div className="App">
+    <body className="App">
       <header>
         <h1>Star Wars Characters</h1>
       </header>
@@ -50,7 +48,7 @@ const App = () => {
         }
         <br></br>
       </section>
-    </div>
+    </body>
   );
 }
 

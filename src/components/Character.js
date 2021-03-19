@@ -17,9 +17,12 @@ const StyledCharacter = styled.section`
   }
 
   button {
-    color: ${prop => prop.theme.secondaryColor};
+    color: ${prop => prop.theme.primaryColor};
     width: 10%;
-    height: 20%;
+    background-color: #00008B;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 0.75rem;
   }
 `
 

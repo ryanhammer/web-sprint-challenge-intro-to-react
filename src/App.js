@@ -8,7 +8,7 @@ const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
   const [characters, setCharacters] = useState([]);
-  const [currentCharId, setCurrentCharId] = useState('1');
+  const [currentCharUrl, setCurrentCharUrl] = useState(null);
 
   // Fetch characters from the API in an effect hook. Remember, anytime you have a 
   // side effect in a component, you want to think about which state and/or props it should
@@ -24,22 +24,32 @@ const App = () => {
       })
   }, [])
 
-  const openDetails = id => {
-    setCurrentCharId(id);
+  const openDetails = url => {
+    setCurrentCharUrl(url);
   }
 
   const closeDetails = () => {
-    setCurrentCharId(null);
+    setCurrentCharUrl(null);
   }
+  
 
   return (
     <div className="App">
-      <h1 className="Header">Characters</h1>
-      {
-        characters.map(char => {
-          return <Character key={char.id} info={char} action={openDetails} />
-        })
-      }
+      <header>
+        <h1>Star Wars Characters</h1>
+      </header>
+      <section className="main-section">
+        <h2>Character</h2>
+        {
+          characters.map(char => {
+            return <Character key={char.url} info={char} action={openDetails} />
+          })
+        }
+        {
+          currentCharUrl && <Details charUrl={currentCharUrl} close={closeDetails} />
+        }
+        <br></br>
+      </section>
     </div>
   );
 }
